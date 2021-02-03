@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS User(
     id INT UNSIGNED AUTO_INCREMENT,
     email VARCHAR(100) NOT NULL,
     password VARCHAR(255) NOT NULL,
+    tele INT ,
     description TEXT NOT NULL,
     user_type ENUM('candidate', 'company'),
     remeber_me_code VARCHAR(255),
@@ -178,6 +179,7 @@ CREATE TABLE IF NOT EXISTS PrefSpec(
 
 CREATE TABLE IF NOT EXISTS Company(
     id INT UNSIGNED,
+    nameComp VARCHAR(50) ,
     size INT UNSIGNED,
     foundation_date DATE NOT NULL,
     logo LONGBLOB NOT NULL,
