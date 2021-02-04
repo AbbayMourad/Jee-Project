@@ -3,6 +3,7 @@ package com.project.main.controllers;
 import com.project.main.models.CandidateForm;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -27,6 +28,11 @@ public class ProjectController {
 	public String getSignUpForm(Model model) {
 		model.addAttribute("candidateForm", new CandidateForm());
 		return Views.SIGN_UP;
+	}
+	
+	@RequestMapping("/my_profile")
+	public String getCandidateProfile() {
+		return Views.CANDIDATE_PROFILE;
 	}
 	
 }
