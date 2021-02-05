@@ -30,11 +30,52 @@ body{
 		min-height : 100vh ;	
 		display:block;
 		padding : 0 30px;
+		position: fixed;
+		left: 270px;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		z-index: 0;
+		overflow-x: hidden;
+		overflow-y: auto; 
+		opacity: 1;
 }
-
+.section.back-section{
+	z-index: 1;
+}
+.section.active{
+	opacity: 1;
+	z-index: 2;
+	-webkit-animation: slideSection 1s ease;
+	animation: slideSection 1s ease;
+	
+}
+@-webkit-keyframes slideSection{
+	0%{
+	-webkit-transform: translateX(100%);
+	transform: translateX(100%);
+	}
+	100%{
+	-webkit-transform: translateX(0%);
+	transform: translateX(0%);
+	}
+}
+@keyframes slideSection{
+	0%{
+	-webkit-transform: translateX(100%);
+	transform: translateX(100%);
+	}
+	100%{
+	-webkit-transform: translateX(0%);
+	transform: translateX(0%);
+	}
+}
 .section .container{
 	padding-top : 60px;
     padding-bottom: 70px;
+}
+input,textarea,select{
+	font-family: 'Montserrat' , sans-serif;
 }
 
 .section-title{
@@ -91,9 +132,6 @@ body{
 	padding-right:15px;
 }
 
-.main-content{
-	padding-left:270px;
-}
 
 
 .container{
@@ -731,7 +769,7 @@ font-weight: 600;
 	border : 8px solid #ffffff;
 }
 
-.education .title{
+.exp .title {
 	padding: 20px 15px;
 }
 

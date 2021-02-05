@@ -2,19 +2,19 @@
 @charset "ISO-8859-1";
 
 .aside .logo a::before{
-	border-top : 4px solid #ec1839;
-	border-left : 4px solid #ec1839;
+	border-top : 4px solid rgb(231, 95, 3);
+	border-left : 4px solid rgb(231, 95, 3);
 }
 
 .aside .logo a::after{
-	border-bottom : 4px solid #ec1839;
-	border-right : 4px solid #ec1839;
+	border-bottom : 4px solid rgb(231, 95, 3);
+	border-right : 4px solid rgb(231, 95, 3);
 }
 
 .about .about-content .about-text h3 span,
 .aside .nav li a:hover,
 .aside .nav li a.active{
-	color : #ec1839;
+	color : rgb(231, 95, 3);
 }
 
 .about .about-content .timeline .circle-dot,
@@ -28,6 +28,6 @@
 .aside .nav-toggler span::before,
 .aside .nav-toggler span::after,
 .home .intro .social-links a{
-	background-color: #ec1839;
+	background-color: rgb(231, 95, 3);
 }
 
