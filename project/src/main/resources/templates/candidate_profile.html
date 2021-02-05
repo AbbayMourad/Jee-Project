@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>My profile</title>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Template css file -->
 
@@ -12,9 +13,10 @@
 </head>
 <body>
 
-<div th:replace="fragments/header :: header-css" ></div>
 
 <div class="main-container">
+
+
 	<div class="aside">
 	<!-- Logo -->
 	<div class="logo">
@@ -38,10 +40,9 @@
 	&copy; 2021 TEMPLATE
 		</div>
 	</div>
-
 	<div class="main-content">
 		<!-- home section --> 
-		<section class="home section" id="home">	
+		<section class="home section active" id="home">	
 			<div class="container">
 				<div class="intro">
 					<img src="img/profile1.jpg" alt="profile" class="shadow-dark">
@@ -550,7 +551,7 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="education padd-15">
+							<div class="exp padd-15">
 								<h3 class="title">Les Compétences</h3>
 							</div>
 						</div>
@@ -624,7 +625,7 @@
 						</div>
 							
 						<div class="row">
-							<div class="education padd-15">
+							<div class="exp padd-15">
 								<h3 class="title">Réseaux sociaux</h3>
 							</div>
 						</div>
@@ -650,7 +651,7 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="education padd-15">
+							<div class="exp padd-15">
 								<h3 class="title">Experience</h3>
 							</div>
 						</div>
@@ -711,6 +712,6 @@
 </div>
 
 
-<div th:replace="fragments/footer :: footer" ></div>
+<script src="js/script.js"></script>
 </body>
 </html>
