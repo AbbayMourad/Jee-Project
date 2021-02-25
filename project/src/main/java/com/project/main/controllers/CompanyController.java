@@ -3,17 +3,22 @@ package com.project.main.controllers;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+
 import com.project.main.models.Address;
 import com.project.main.models.Company;
 import com.project.main.models.CompanyForm;
 import com.project.main.models.Offer;
+import com.project.main.models.OfferSkill;
 import com.project.main.models.User;
 import com.project.main.services.AddressService;
 import com.project.main.services.CityService;
 import com.project.main.services.CompanyService;
 import com.project.main.services.OfferService;
+import com.project.main.services.OfferSkillService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +28,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class CompanyController {
@@ -38,6 +44,7 @@ public class CompanyController {
 
     @Autowired
     private OfferService offerService;
+
 
     @GetMapping("company/signup")
     public String getSignUpForm(Model model) {
@@ -62,15 +69,6 @@ public class CompanyController {
     public String getAddCompanyAddrPage(Model model) {
         model.addAttribute("cities", cityService.getAll());
         return Views.ADD_COMPANY_ADDRESSES;
-    }
-
-    @GetMapping("/company/offers")
-    public String getCompanyOffersPage(Model model, HttpSession session) {
-        // we are sure the user is signed in and it's a company (thanks to filters)
-        User user = (User) session.getAttribute("user");
-        Company company = new Company(user);
-        model.addAttribute("offers", offerService.getOffers(company));
-        return Views.COMPANY_OFFERS_PAGE;
     }
 
     @RequestMapping("/companies")

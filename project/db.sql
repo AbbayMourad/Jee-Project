@@ -231,9 +231,9 @@ CREATE TABLE IF NOT EXISTS Offer(
 CREATE TABLE IF NOT EXISTS OfferResponsibility(
     id INT UNSIGNED AUTO_INCREMENT,
     name TEXT NOT NULL,
-    offer_id INT UNSIGNED NOT NULL,
+    offer_id INT UNSIGNED,
     PRIMARY KEY (id),
-    FOREIGN KEY (offer_id) REFERENCES Offer(id) ON DELETE CASCADE
+    FOREIGN KEY (offer_id) REFERENCES Offer(id) ON DELETE CASCADE ON UPDATE SET NULL
 );
 /* represent a skill in an offer */
 CREATE TABLE IF NOT EXISTS OfferSkill(
@@ -242,7 +242,7 @@ CREATE TABLE IF NOT EXISTS OfferSkill(
     level ENUM('beginner', 'intermidate', 'advanced'),
     offer_id INT UNSIGNED,
     PRIMARY KEY (id),
-    FOREIGN KEY (offer_id) REFERENCES Offer(id) ON DELETE CASCADE
+    FOREIGN KEY (offer_id) REFERENCES Offer(id) ON DELETE CASCADE ON UPDATE SET NULL
 );
 
 CREATE TABLE IF NOT EXISTS EducationLevel(
