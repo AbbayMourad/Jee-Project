@@ -10,6 +10,7 @@ import javax.validation.Valid;
 import com.project.main.models.Address;
 import com.project.main.models.Company;
 import com.project.main.models.CompanyForm;
+import com.project.main.models.CompanyGeneralInfo;
 import com.project.main.models.Offer;
 import com.project.main.models.OfferSkill;
 import com.project.main.models.User;
@@ -26,6 +27,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -100,4 +103,35 @@ public class CompanyController {
             return Views.COMPANY_PAGE;
         }
     }
+
+    @GetMapping("/company/profile")
+    public String getCompanyProfile(Model model, HttpSession session) {
+        // we are sure the user is signed in and it's a company (thanks to filters)
+        User user = (User) session.getAttribute("user");
+        List<Address> addresses = addressService.getAddresses(user);
+        model.addAttribute("company", user);
+        model.addAttribute("addresses", addresses);
+        return Views.COMPANY_PROFILE;
+    }
+
+    @GetMapping("/company/profile/update")
+    public String getCompanyProfileUpdate(Model model, HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        model.addAttribute("company", user);
+        return Views.COMPANY_PROFILE_UPDATE;
+    }
+
+    @PostMapping("/company/profile/update")
+    public String getchangename(@RequestParam("id") int id, @RequestParam("newPname") String name,
+            HttpSession session) {
+        companyService.changeName(id, name);
+        return "redirect:/company/profile";
+    }
+
+    /*
+     * @GetMapping("/company/logo/update") public String getCompanyLogoUpdate(Model
+     * model, HttpSession session) { User user = (User)
+     * session.getAttribute("user"); model.addAttribute("company", user); return
+     * Views.COMPANY_LOGO_UPDATE; }
+     */
 }
