@@ -40,6 +40,10 @@ public class Company extends CompanyGeneralInfo {
     setId(user.getId());
   }
 
+  public Company(int id) {
+    setId(id);
+  }
+
   public byte[] getLogo() {
     return logo;
   }
